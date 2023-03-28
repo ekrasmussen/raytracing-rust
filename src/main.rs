@@ -3,6 +3,7 @@ fn main() {
     let img_width = 256;
     let img_height = 256;
 
+    eprintln!("Generating image..");
     println!("P3\n{} {} \n255\n", img_width, img_height);
 
     for i in (0..img_height).rev() {
@@ -18,5 +19,7 @@ fn main() {
             println!("{} {} {}\n", ir, ig, ib);
         }
     }
+
+    eprintln!("Image generation done, file has been created");
 
 }
