@@ -64,22 +64,6 @@ impl Add for Vector3 {
         Vector3 {coords: [self.coords[0] + other.coords[0], self.coords[1] + other.coords[1], self.coords[2] + other.coords[2]]}
     }
 }
-//Overloading the Subtraction - Operator
-impl Sub for Vector3 {
-    type Output = Vector3;
-
-    fn sub(self, other: Vector3) -> Vector3 {
-        Vector3 {coords: [self.coords[0] - other.coords[0], self.coords[1] - other.coords[1], self.coords[2] - other.coords[2]]}
-    }
-}
-//Overloading the Multiplication * Operator
-impl Mul for Vector3 {
-    type Output = Vector3;
-    
-    fn mul(self, other: Vector3) -> Vector3 {
-        Vector3 {coords: [self.coords[0] * other.coords[0], self.coords[1] * other.coords[1], self.coords[2] * other.coords[2]]}
-    }
-}
 
 //Assign operators
 
@@ -88,14 +72,6 @@ impl AddAssign<Vector3> for Vector3 {
         self.coords[0] += value;
         self.coords[1] += value;
         self.coords[2] += value;
-    }
-}
-
-impl SubAssign<Vector3> for Vector3 {
-    fn sub_assign(&mut self, value: f64) {
-        self.coords[0] -= value;
-        self.coords[1] -= value;
-        self.coords[2] -= value;
     }
 }
 
@@ -109,8 +85,6 @@ impl MulAssign<Vector3> for Vector3 {
 
 impl DivAssign<Vector3> for Vector3 {
     fn div_assign(&mut self, value: f64) {
-        self.coords[0] /= value;
-        self.coords[1] /= value;
-        self.coords[2] /= value;
+        *self *= 1/value
     }
 }
