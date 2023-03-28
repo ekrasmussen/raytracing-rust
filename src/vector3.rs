@@ -4,6 +4,9 @@ use std::ops::Add;
 use std::ops::Sub;
 use std::ops::Mul;
 
+type Point3 = Vector3;
+type Color = Vector3;
+
 #[derive(Debug)]
 struct Vector3 {
     //Made as an array to maximize speed
@@ -24,6 +27,14 @@ impl Vector3 {
         Self{coords: [x, y, z]}
     }
     //End of Constructors
+
+    fn len() -> f64 {
+        sqrt(len_sqrt())
+    }
+
+    fn len_sqrt() {
+        coords[0]*coords[0] + coords[1]*coords[1] + coords[2]*coords[2];
+    }
 }
 
 
