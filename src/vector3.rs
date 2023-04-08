@@ -9,7 +9,7 @@ use std::ops::MulAssign;
 use std::ops::DivAssign;
 
 
-type Point3 = Vector3;
+pub type Point3 = Vector3;
 pub type Color = Vector3;
 
 #[derive(Debug)]
