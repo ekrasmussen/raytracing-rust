@@ -1,6 +1,5 @@
-mod vector3;
-mod color;
 use crate::vector3::Point3;
+use crate::vector3::Vector3;
 use crate::color::write_color;
 
 #[derive(Debug)]
@@ -10,13 +9,18 @@ pub struct Ray {
 }
 
 impl Ray {
-    pub fn new(origin : &Point3, direction : &Vector3) {
-        orig = origin;
-        dir = direction;
+    pub fn new(origin : Point3, direction : Vector3) -> Self {
+        Self{orig: origin, dir: direction}
     }
 
-    pub fn new_empty() {
-        orig = Point3::new(0,0,0);
-        dir = Vector3::new(0,0,0);
+    pub fn new_empty() -> Self{
+        Self{orig: Point3::new_empty(), dir: Vector3::new_empty()}
+    }
+
+    pub fn origin(&self) -> &Point3 {&self.orig}
+    pub fn dir(&self) -> &Vector3 {&self.dir}
+
+    pub fn at(&self, t : f64) -> Point3 {
+        self.orig.copy() + t*self.dir.copy()
     }
 }

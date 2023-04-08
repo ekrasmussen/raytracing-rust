@@ -1,5 +1,6 @@
 mod vector3;
 mod color;
+mod ray;
 use crate::vector3::Color;
 use crate::color::write_color;
 fn main() {
